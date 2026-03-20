@@ -1,0 +1,78 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: favorites
+    // Document ID: auto-generated
+    // Fields:
+    //   - uid: string (required) - Owner's user ID
+    //   - title: string (required) - Book title
+    //   - author: string (required) - Book author
+    //   - coverUrl: string (optional) - Image URL
+    //   - rating: number (optional) - Book rating
+    //   - description: string (optional) - Book summary
+    //   - interest: string (optional) - Category
+    //   - readingTime: number (optional) - Time in minutes
+    //   - createdAt: timestamp (required) - Creation time
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isDocOwner() {
+      return isAuthenticated() && request.auth.uid == resource.data.uid;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
+          (request.auth.token.email == "maiswarya666@gmail.com" && request.auth.token.email_verified == true));
+    }
+
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    function isValidFavorite(data) {
+      return hasRequiredFields(['uid', 'title', 'author', 'createdAt']) &&
+             hasOnlyAllowedFields(['uid', 'title', 'author', 'coverUrl', 'rating', 'description', 'interest', 'readingTime', 'createdAt']) &&
+             data.uid is string && data.uid.size() > 0 &&
+             data.title is string && data.title.size() > 0 && data.title.size() < 200 &&
+             data.author is string && data.author.size() > 0 && data.author.size() < 100 &&
+             (!('coverUrl' in data) || (data.coverUrl is string && data.coverUrl.size() < 1000)) &&
+             (!('rating' in data) || (data.rating is number && data.rating >= 0 && data.rating <= 5)) &&
+             (!('description' in data) || (data.description is string && data.description.size() < 2000)) &&
+             (!('interest' in data) || (data.interest is string && data.interest.size() < 100)) &&
+             (!('readingTime' in data) || (data.readingTime is number && data.readingTime >= 0)) &&
+             data.createdAt is timestamp;
+    }
+
+    match /favorites/{favoriteId} {
+      allow read: if isDocOwner() || isAdmin();
+      allow create: if isAuthenticated() && isValidFavorite(request.resource.data) && request.resource.data.uid == request.auth.uid;
+      allow update: if isDocOwner() && isValidFavorite(request.resource.data) && request.resource.data.uid == resource.data.uid;
+      allow delete: if isDocOwner() || isAdmin();
+    }
+
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow write: if isAdmin();
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Bookflix",
+  "description": "A Netflix-inspired book recommendation app that suggests reads based on your interests and available time.",
+  "requestFramePermissions": []
+}

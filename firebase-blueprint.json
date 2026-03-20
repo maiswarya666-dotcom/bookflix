@@ -1,0 +1,55 @@
+{
+  "entities": {
+    "FavoriteBook": {
+      "title": "FavoriteBook",
+      "description": "A book saved by the user as a favorite.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The user ID of the owner."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the book."
+        },
+        "author": {
+          "type": "string",
+          "description": "The author of the book."
+        },
+        "coverUrl": {
+          "type": "string",
+          "description": "URL to the book's cover image."
+        },
+        "rating": {
+          "type": "number",
+          "description": "The book's rating."
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief description of the book."
+        },
+        "interest": {
+          "type": "string",
+          "description": "The interest category this book belongs to."
+        },
+        "readingTime": {
+          "type": "number",
+          "description": "Estimated reading time in minutes."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the favorite was added."
+        }
+      },
+      "required": ["uid", "title", "author", "createdAt"]
+    }
+  },
+  "firestore": {
+    "favorites/{favoriteId}": {
+      "schema": "FavoriteBook",
+      "description": "Collection of user favorite books."
+    }
+  }
+}
