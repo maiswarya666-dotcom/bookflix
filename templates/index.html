@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookFlix</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">📚 BookFlix</div>
+    </header>
+
+    <section class="hero">
+
+        <h1>Discover Your Next Favorite Book</h1>
+
+        <p>
+            Get personalized book recommendations instantly
+        </p>
+
+        <form method="POST">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Fantasy, Romance, Mystery..."
+            >
+
+            <button type="submit">
+                Recommend
+            </button>
+
+        </form>
+
+    </section>
+
+    <section class="genre-section">
+
+        <h2>Popular Genres</h2>
+
+        <div class="genre-row">
+
+            <div class="genre-pill">Fantasy</div>
+            <div class="genre-pill">Romance</div>
+            <div class="genre-pill">Mystery</div>
+            <div class="genre-pill">Sci-Fi</div>
+            <div class="genre-pill">Thriller</div>
+            <div class="genre-pill">Adventure</div>
+
+        </div>
+
+    </section>
+
+    <section class="books-section">
+
+        <h2>Recommended Books</h2>
+
+        <div class="books-row">
+
+            {% for book in books %}
+
+            <div class="book-card">
+
+                <img
+                    src="{{ book.image }}"
+                    alt="{{ book.title }}"
+                >
+
+                <div class="book-info">
+
+                    <h3>{{ book.title }}</h3>
+
+                    <p class="author">
+                        {{ book.author }}
+                    </p>
+
+                    <p class="genre">
+                        {{ book.genre }}
+                    </p>
+
+                    <p class="description">
+                        {{ book.description }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
