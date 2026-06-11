@@ -11,27 +11,29 @@ def home():
 
     if request.method == "POST":
 
-    genre = request.form["genre"].lower()
+        genre = request.form["genre"].lower()
 
-    minutes = int(request.form["minutes"])
+        minutes = int(request.form["minutes"])
 
-    filtered_books = []
+        filtered_books = []
 
-    for book in books:
+        for book in books:
 
-        if (
-            genre in book["genre"].lower()
-            and
-            book["minutes"] <= minutes
-        ):
-            filtered_books.append(book)
+            if (
+                genre in book["genre"].lower()
+                and
+                book["minutes"] <= minutes
+            ):
+                filtered_books.append(book)
 
-    books = filtered_books
+        books = filtered_books
 
     return render_template(
-        "index.html",
-        books=books
-    )
+    "index.html",
+    books=books,
+    no_books=(len(books) == 0)
+)
+    
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

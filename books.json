@@ -1,25 +1,28 @@
 [
     {
-        "title":"Sherlock Holmes",
-        "genre":"Mystery",
-        "author":"Arthur Conan Doyle",
-        "description":"Detective stories.",
-        "minutes":60
+        "title":"Harry Potter",
+        "genre":"Fantasy",
+        "author":"J.K. Rowling",
+        "description":"A young wizard discovers magic.",
+        "minutes":480,
+        "image":"https://covers.openlibrary.org/b/isbn/9780439708180-L.jpg"
     },
 
     {
         "title":"The Hobbit",
         "genre":"Fantasy",
         "author":"J.R.R. Tolkien",
-        "description":"A grand adventure.",
-        "minutes":480
+        "description":"A small hobbit goes on a grand adventure.",
+        "minutes":360,
+        "image":"https://covers.openlibrary.org/b/isbn/9780547928227-L.jpg"
     },
 
     {
-        "title":"Pride and Prejudice",
-        "genre":"Romance",
-        "author":"Jane Austen",
-        "description":"Classic romance.",
-        "minutes":600
+        "title":"Sherlock Holmes",
+        "genre":"Mystery",
+        "author":"Arthur Conan Doyle",
+        "description":"Famous detective solving mysteries.",
+        "minutes":60,
+        "image":"https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg"
     }
 ]

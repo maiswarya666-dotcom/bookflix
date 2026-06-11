@@ -24,18 +24,20 @@
             Get personalized book recommendations instantly
         </p>
 
-        <form method="POST">
+      <form method="POST">
 
     <input
         type="text"
         name="genre"
         placeholder="Fantasy, Mystery, Romance"
+        required
     >
 
     <input
         type="number"
         name="minutes"
         placeholder="Reading time in minutes"
+        required
     >
 
     <button type="submit">
@@ -62,47 +64,60 @@
         </div>
 
     </section>
+<section class="books-section">
 
-    <section class="books-section">
+    <h2>Recommended Books</h2>
 
-        <h2>Recommended Books</h2>
+    <div class="books-row">
 
-        <div class="books-row">
+        {% if no_books %}
 
-            {% for book in books %}
+        <h3 class="no-books">
+            No books found matching your genre and reading time.
+        </h3>
 
-            <div class="book-card">
+        {% else %}
 
-                <img
-                    src="{{ book.image }}"
-                    alt="{{ book.title }}"
-                >
+        {% for book in books %}
 
-                <div class="book-info">
+        <div class="book-card">
 
-                    <h3>{{ book.title }}</h3>
+            <img
+                src="{{ book.image }}"
+                alt="{{ book.title }}"
+            >
 
-                    <p class="author">
-                        {{ book.author }}
-                    </p>
+            <div class="book-info">
 
-                    <p class="genre">
-                        {{ book.genre }}
-                    </p>
+                <h3>{{ book.title }}</h3>
 
-                    <p class="description">
-                        {{ book.description }}
-                    </p>
+                <p class="author">
+                    {{ book.author }}
+                </p>
 
-                </div>
+                <p class="genre">
+                    {{ book.genre }}
+                </p>
+
+                <p class="time">
+                    ⏱ {{ book.minutes }} minutes
+                </p>
+
+                <p class="description">
+                    {{ book.description }}
+                </p>
 
             </div>
 
-            {% endfor %}
-
         </div>
 
-    </section>
+        {% endfor %}
+
+        {% endif %}
+
+    </div>
+
+</section>
 
 </body>
 
