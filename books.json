@@ -1,41 +1,25 @@
 [
     {
-        "title":"Harry Potter and the Sorcerer's Stone",
-        "genre":"Fantasy",
-        "author":"J.K. Rowling",
-        "description":"A young wizard discovers magic.",
-        "image":"https://covers.openlibrary.org/b/isbn/9780439708180-L.jpg"
+        "title":"Sherlock Holmes",
+        "genre":"Mystery",
+        "author":"Arthur Conan Doyle",
+        "description":"Detective stories.",
+        "minutes":60
     },
 
     {
         "title":"The Hobbit",
         "genre":"Fantasy",
         "author":"J.R.R. Tolkien",
-        "description":"A small hobbit goes on a grand adventure.",
-        "image":"https://covers.openlibrary.org/b/isbn/9780547928227-L.jpg"
+        "description":"A grand adventure.",
+        "minutes":480
     },
 
     {
         "title":"Pride and Prejudice",
         "genre":"Romance",
         "author":"Jane Austen",
-        "description":"A classic romance story.",
-        "image":"https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg"
-    },
-
-    {
-        "title":"Dune",
-        "genre":"Sci-Fi",
-        "author":"Frank Herbert",
-        "description":"Politics and survival on a desert planet.",
-        "image":"https://covers.openlibrary.org/b/isbn/9780441172719-L.jpg"
-    },
-
-    {
-        "title":"Sherlock Holmes",
-        "genre":"Mystery",
-        "author":"Arthur Conan Doyle",
-        "description":"Famous detective solving mysteries.",
-        "image":"https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg"
+        "description":"Classic romance.",
+        "minutes":600
     }
 ]
