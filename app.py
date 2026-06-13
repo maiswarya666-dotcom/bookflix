@@ -18,8 +18,10 @@ def home():
 
         for book in books:
 
+            genres = [g.lower() for g in book["genres"]]
+
             if (
-                genre in book["genre"].lower()
+                genre in genres
                 and
                 book["minutes"] <= minutes
             ):

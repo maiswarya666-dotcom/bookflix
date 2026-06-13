@@ -1,7 +1,7 @@
 [
     {
         "title":"Harry Potter",
-        "genre":"Fantasy",
+        "genres":["Fantasy","Adventure"],
         "author":"J.K. Rowling",
         "description":"A young wizard discovers magic.",
         "minutes":480,
@@ -10,7 +10,7 @@
 
     {
         "title":"The Hobbit",
-        "genre":"Fantasy",
+        "genres":["Fantasy","Adventure"],
         "author":"J.R.R. Tolkien",
         "description":"A small hobbit goes on a grand adventure.",
         "minutes":360,
@@ -18,11 +18,110 @@
     },
 
     {
+        "title":"Pride and Prejudice",
+        "genres":["Romance","Classic"],
+        "author":"Jane Austen",
+        "description":"A classic romance story.",
+        "minutes":300,
+        "image":"https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg"
+    },
+
+    {
+        "title":"Dune",
+        "genres":["Sci-Fi","Adventure"],
+        "author":"Frank Herbert",
+        "description":"Politics and survival on a desert planet.",
+        "minutes":600,
+        "image":"https://covers.openlibrary.org/b/isbn/9780441172719-L.jpg"
+    },
+
+    {
         "title":"Sherlock Holmes",
-        "genre":"Mystery",
+        "genres":["Mystery","Thriller"],
         "author":"Arthur Conan Doyle",
         "description":"Famous detective solving mysteries.",
-        "minutes":60,
+        "minutes":240,
         "image":"https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg"
-    }
+    },
+
+    {
+        "title":"The Lion, the Witch and the Wardrobe",
+        "genres":["Fantasy","Adventure"],
+        "author":"C.S. Lewis",
+        "description":"Four children discover a magical world hidden inside a wardrobe.",
+        "minutes":320,
+        "image":"https://covers.openlibrary.org/b/isbn/9780064471046-L.jpg"
+    },
+    {
+       "title":"Prince Caspian",
+       "genres":["Fantasy","Adventure"],
+       "author":"C.S. Lewis",
+       "description":"The Pevensie children return to Narnia to help its rightful king.",
+       "minutes":340,
+       "image":"https://covers.openlibrary.org/b/isbn/9780064471053-L.jpg"
+    },
+    {
+       "title":"Voyage of the Dawn Treader",
+       "genres":["Fantasy","Adventure"],
+       "author":"C.S. Lewis",
+       "description":"A sea voyage across magical lands in search of lost lords.",
+       "minutes":350,
+       "image":"https://covers.openlibrary.org/b/isbn/9780064471077-L.jpg"
+    },
+    {
+       "title":"Eragon",
+       "genres":["Fantasy","Adventure"],
+       "author":"Christopher Paolini",
+       "description":"A farm boy discovers a dragon egg and a dangerous destiny.",
+       "minutes":720,
+       "image":"https://covers.openlibrary.org/b/isbn/9780375826689-L.jpg"
+    },
+    {
+       "title":"Eldest",
+       "genres":["Fantasy","Adventure"],
+       "author":"Christopher Paolini",
+       "description":"Eragon continues his training while war spreads across the land.",
+       "minutes":840,
+       "image":"https://covers.openlibrary.org/b/isbn/9780375840401-L.jpg"
+    },
+    {
+       "title":"Brisingr",
+       "genres":["Fantasy","Adventure"],
+       "author":"Christopher Paolini",
+       "description":"The Dragon Rider faces enemies and difficult choices.",
+       "minutes":900,
+       "image":"https://covers.openlibrary.org/b/isbn/9780375826726-L.jpg"
+    },
+    {
+       "title":"Inheritance",
+       "genres":["Fantasy","Adventure"],
+       "author":"Christopher Paolini",
+       "description":"The final battle for Alagaësia begins.",
+       "minutes":980,
+      "image":"https://covers.openlibrary.org/b/isbn/9780375856112-L.jpg"
+    },
+    {
+    "title":"Treasure Island",
+    "genres":["Adventure","Classic"],
+    "author":"Robert Louis Stevenson",
+    "description":"A young boy joins a dangerous search for buried treasure.",
+    "minutes":280,
+    "image":"https://covers.openlibrary.org/b/isbn/9780141321004-L.jpg"
+},
+{
+    "title":"Robinson Crusoe",
+    "genres":["Adventure","Classic"],
+    "author":"Daniel Defoe",
+    "description":"A castaway survives alone on a remote island.",
+    "minutes":420,
+    "image":"https://covers.openlibrary.org/b/isbn/9780141439822-L.jpg"
+},
+{
+    "title":"Around the World in Eighty Days",
+    "genres":["Adventure","Classic"],
+    "author":"Jules Verne",
+    "description":"A gentleman races around the world to win a wager.",
+    "minutes":300,
+    "image":"https://covers.openlibrary.org/b/isbn/9780140449068-L.jpg"
+}
 ]
