@@ -2,49 +2,60 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>BookFlix</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
     <header>
-        <div class="logo">📚 BookFlix</div>
+
+        <div class="logo">
+            📚 BookFlix
+        </div>
+
     </header>
 
     <section class="hero">
 
-        <h1>Discover Your Next Favorite Book</h1>
+        <h1>
+            Discover Your Next Favorite Book
+        </h1>
 
         <p>
             Get personalized book recommendations instantly
         </p>
 
-      <form method="POST">
+        <form method="POST">
 
-    <input
-        type="text"
-        name="genre"
-        placeholder="Fantasy, Mystery, Romance"
-        required
-    >
+            <input
+                type="text"
+                name="genre"
+                placeholder="Fantasy, Mystery, Romance"
+                required
+            >
 
-    <input
-        type="number"
-        name="minutes"
-        placeholder="Reading time in minutes"
-        required
-    >
+            <input
+                type="number"
+                name="minutes"
+                placeholder="Reading time in minutes"
+                required
+            >
 
-    <button type="submit">
-        Recommend
-    </button>
+            <button type="submit">
+                Recommend
+            </button>
 
-</form>
+        </form>
 
     </section>
 
@@ -54,70 +65,117 @@
 
         <div class="genre-row">
 
-            <div class="genre-pill">Fantasy</div>
-            <div class="genre-pill">Romance</div>
-            <div class="genre-pill">Mystery</div>
-            <div class="genre-pill">Sci-Fi</div>
-            <div class="genre-pill">Thriller</div>
-            <div class="genre-pill">Adventure</div>
+            <button
+                class="genre-pill"
+                onclick="fillGenre('Fantasy')">
+                Fantasy
+            </button>
+
+            <button
+                class="genre-pill"
+                onclick="fillGenre('Romance')">
+                Romance
+            </button>
+
+            <button
+                class="genre-pill"
+                onclick="fillGenre('Mystery')">
+                Mystery
+            </button>
+
+            <button
+                class="genre-pill"
+                onclick="fillGenre('Sci-Fi')">
+                Sci-Fi
+            </button>
+
+            <button
+                class="genre-pill"
+                onclick="fillGenre('Thriller')">
+                Thriller
+            </button>
+
+            <button
+                class="genre-pill"
+                onclick="fillGenre('Adventure')">
+                Adventure
+            </button>
 
         </div>
 
     </section>
-<section class="books-section">
 
-    <h2>Recommended Books</h2>
+    <section class="books-section">
 
-    <div class="books-row">
+        <h2>Recommended Books</h2>
 
-        {% if no_books %}
-
-        <h3 class="no-books">
-            No books found matching your genre and reading time.
+        <h3 class="count">
+            Found {{ book_count }} book(s)
         </h3>
 
-        {% else %}
+        <div class="books-row">
 
-        {% for book in books %}
+            {% if no_books %}
 
-        <div class="book-card">
+            <h3 class="no-books">
+                No books found matching your genre
+                and reading time.
+            </h3>
 
-            <img
-                src="{{ book.image }}"
-                alt="{{ book.title }}"
-            >
+            {% else %}
 
-            <div class="book-info">
+            {% for book in books %}
 
-                <h3>{{ book.title }}</h3>
+            <div class="book-card">
 
-                <p class="author">
-                    {{ book.author }}
-                </p>
+                <img
+                    src="{{ book.image }}"
+                    alt="{{ book.title }}"
+                >
 
-                <p class="genre">
-                    {{ book.genre }}
-                </p>
+                <div class="book-info">
 
-                <p class="time">
-                    ⏱ {{ book.minutes }} minutes
-                </p>
+                    <h3>{{ book.title }}</h3>
 
-                <p class="description">
-                    {{ book.description }}
-                </p>
+                    <p class="author">
+                        {{ book.author }}
+                    </p>
+
+                    <p class="genre">
+                        {{ book.genre }}
+                    </p>
+
+                    <p class="time">
+                        ⏱ {{ book.display_time }}
+                    </p>
+
+                    <p class="description">
+                        {{ book.description }}
+                    </p>
+
+                </div>
 
             </div>
 
+            {% endfor %}
+
+            {% endif %}
+
         </div>
 
-        {% endfor %}
+    </section>
 
-        {% endif %}
+    <script>
 
-    </div>
+        function fillGenre(genre){
 
-</section>
+            document.querySelector(
+                'input[name="genre"]'
+            ).value = genre;
+
+        }
+
+    </script>
 
 </body>
 
